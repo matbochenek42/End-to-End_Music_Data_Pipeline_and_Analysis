@@ -7,7 +7,7 @@ SELECT
     name,
     listeners,
     playcount,
-    (listeners::NUMERIC / playcount) * 100 AS ratio
+    ROUND((listeners::NUMERIC / playcount) * 100, 2) AS ratio
 FROM
     top_artists
 WHERE
@@ -15,8 +15,7 @@ WHERE
 ORDER BY
     ratio DESC;
 
-
--- Listener Distribution (Market Share) by Artist Listener Quartile
+-- Listeners Distribution (Market Share) by Artist Listener Quartile
 
 WITH listeners_range AS( -- quartiles
     SELECT 

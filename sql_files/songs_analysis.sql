@@ -3,6 +3,8 @@ SELECT * FROM top_songs LIMIT 5;
 
 -- Song Popularity by Duration
 
+-- Numbers of Songs
+
 WITH duration_to_minutes AS(
     SELECT
         ROUND(duration::NUMERIC/60, 2) AS duration_mins
@@ -26,6 +28,39 @@ WITH duration_to_minutes AS(
 SELECT
     SUBSTRING(duration_scope FROM 3) AS duration_range,
     COUNT(duration_mins) AS number_of_songs
+FROM
+    duration_range
+GROUP BY
+    duration_scope
+ORDER BY
+    duration_scope;
+
+
+-- Average
+WITH duration_to_minutes AS(
+    SELECT
+        playcount,
+        ROUND(duration::NUMERIC/60, 2) AS duration_mins
+    FROM
+        top_songs
+), duration_range AS(
+    SELECT
+        playcount,
+        CASE
+            WHEN duration_mins < 1 THEN '1.below 1 minute'
+            WHEN duration_mins >= 1 AND duration_mins < 2 THEN '2.1–2 minutes'
+            WHEN duration_mins >= 2 AND duration_mins < 3 THEN '3.2–3 minutes'
+            WHEN duration_mins >= 3 AND duration_mins < 4 THEN '4.3–4 minutes'
+            WHEN duration_mins >= 4 AND duration_mins < 5 THEN '5.4–5 minutes'
+            WHEN duration_mins >= 5 AND duration_mins < 6 THEN '6.5–6 minutes'
+            ELSE '7.6+ minutes'
+        END AS duration_scope
+    FROM
+        duration_to_minutes
+)
+SELECT
+    SUBSTRING(duration_scope FROM 3) AS duration_range,
+    ROUND(AVG(playcount), 2) AS number_of_songs
 FROM
     duration_range
 GROUP BY

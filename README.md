@@ -4,3 +4,9 @@ quicknote: directquery w powerbi do serwera sql
 
 
 bookmark dla metallici?
+
+można dać ratio
+
+scatter dla słów wykres
+
+kwantyle
