@@ -22,10 +22,11 @@ This project is divided into four separate steps
 
 ## ⚙️ How to Run
 
-1. Install PostgreSQL and Python locally. Create music_db database in PostgreSQL.
-2. Download the entire folder.
-3. Follow the instructions in [data_overview_&_load_to_sql_db.ipbyn](python_files/data_overview_&_load_to_sql_db.ipynb) file and run all cells using Jupyter Notebook or Visual Studio Code.
-4. Now you can run SQL files ([artists_analysis.sql](sql_files/artists_analysis.sql) and [songs_analysis.sql](sql_files/songs_analysis.sql)).
+1. Install PostgreSQL and Python locally. 
+2. Create music_db database in PostgreSQL.
+3. Download the entire folder.
+4. Follow the instructions in [data_overview_&_load_to_sql_db.ipbyn](python_files/data_overview_&_load_to_sql_db.ipynb) file and run all cells using Jupyter Notebook or Visual Studio Code.
+5. Now you can run SQL files ([artists_analysis.sql](sql_files/artists_analysis.sql) and [songs_analysis.sql](sql_files/songs_analysis.sql)).
 
 
 ## 📊 Visualization
