@@ -9,7 +9,7 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 from pprint import PrettyPrinter
 
 # API elements (key and link)
-API_KEY = "098b2b402eb4ad43e56e9b40fee3f1e9"
+API_KEY = "YOUR API KEY" # write your own API key here
 url = "http://ws.audioscrobbler.com/2.0/"
 
 
